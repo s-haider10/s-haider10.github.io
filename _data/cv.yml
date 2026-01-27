@@ -7,11 +7,9 @@ cv:
 
   summary: >
     Machine Learning Engineer working at the frontier of large language models,
-    agentic systems, and multimodal learning. Proven ability to take ideas from
-    research prototypes to production-grade AI systems used by real users.
-    Experience spans RAG pipelines, recommender systems, reinforcement learning,
-    and multimodal models, with a strong bias toward execution, scalability,
-    and measurable impact. Actively building and researching AI-native products.
+    agentic systems, and multimodal learning. Proven ability to ship production
+    ML systems with real users while contributing to applied research in
+    alignment, retrieval, and representation learning.
 
   social_networks:
     - network: GitHub
@@ -31,11 +29,10 @@ cv:
           Owned the design and deployment of an end-to-end agentic AI platform
           for automated research and technical due diligence.
         highlights:
-          - Built production RAG pipelines (LangChain, Pinecone, FastAPI) over proprietary data
+          - Built production RAG pipelines using LangChain, Pinecone, and FastAPI
           - Reduced research turnaround from ~1 week to under 5 minutes
           - Deployed containerized ML services on GCP with Docker and CI/CD
-          - Implemented evaluation, validation, and safety checks aligned with Responsible AI
-          - Demoed system to VCs; directly supported fundraising workflows
+          - Implemented evaluation and safety checks aligned with Responsible AI
 
       - company: Khudi Ventures (Dil Ka Rishta)
         position: Machine Learning Engineer Intern (Recommender Systems)
@@ -43,93 +40,61 @@ cv:
         start_date: 2024-06
         end_date: 2024-09
         summary: >
-          Built large-scale personalization and matchmaking systems combining
-          graph algorithms, embeddings, and reinforcement learning.
+          Built large-scale personalization and matchmaking systems.
         highlights:
-          - Designed matching algorithm over 1M+ user profiles using graph representations
-          - Implemented embedding-based user representations with Pinecone
+          - Designed matching algorithms over 1M+ user profiles using graph models
           - Applied reinforcement learning with sentiment-based reward modeling
-          - Achieved ~30% increase in user engagement via controlled A/B testing
-          - Architected FastAPI backend and analytics dashboard for experimentation
-
-      - company: Listen.dev (Garnet.ai)
-        position: Software Engineer Intern
-        location: Remote
-        start_date: 2023-06
-        end_date: 2023-09
-        summary: >
-          Worked on real-time generative AI systems for cybersecurity monitoring.
-        highlights:
-          - Built streaming AI pipeline to summarize and classify live threat data
-          - Ingested and analyzed 20k+ historical security incidents
-          - Reduced analyst workload by ~80% through automated reporting
-          - Enabled zero-shot classification of novel threat categories
-
-      - company: Reckitt Benckiser
-        position: Data Science Intern
-        location: MENA
-        start_date: 2024-05
-        end_date: 2024-07
-        summary: >
-          Developed forecasting and pricing intelligence systems for large-scale markets.
-        highlights:
-          - Built ensemble ML models achieving 97.9% accuracy
-          - Automated ETL pipelines for pricing and promotion data
-          - Applied game-theoretic simulations to competitive pricing strategy
-          - Delivered dashboards used by regional decision-makers
+          - Achieved ~30% increase in user engagement via A/B testing
 
     Startups & Products:
-      - name: NEVA (Navigating Education Via AI)
-        role: Co-Founder / Lead ML Engineer
+      - company: NEVA (Navigating Education Via AI)
+        position: Co-Founder / Lead ML Engineer
         start_date: 2024-11
-        end_date: Present
+        end_date: present
         summary: >
-          AI-native educational platform focused on contextual, multimodal learning.
+          AI-native educational platform for contextual, multimodal learning.
         highlights:
-          - Full-stack system (Next.js, FastAPI, Docker)
+          - Full-stack system using Next.js, FastAPI, Docker
           - Agentic RAG with confidence-aware multi-LLM routing
-          - Integrated generative Manim video explanations
-          - 80+ active university users; top-tier YC-style applicant traction
+          - 80+ active university users
 
-      - name: DEXA
-        role: Creator
+      - company: DEXA
+        position: Creator
         start_date: 2025-02
         end_date: 2025-05
         summary: >
-          Natural-language-driven data analysis agent for analysts and engineers.
+          Natural-language-driven data analysis agent.
         highlights:
           - Created DataExplainBench benchmark
-          - Improved code generation success from 88% → 99.3%
-          - Automated evaluation via CI/CD
+          - Improved code generation success from 88% to 99.3%
 
     Research:
-      - institution: SEHAS Lab, Dartmouth College
+      - company: SEHAS Lab, Dartmouth College
         position: Researcher
         start_date: 2025-12
-        end_date: Present
+        end_date: present
         summary: >
           Research on alignment and interpretability of learning systems.
         highlights:
           - Reinforcement learning for policy alignment
           - Mechanistic interpretability of learned representations
 
-      - institution: NYU MAPS Lab
+      - company: NYU MAPS Lab
         position: Researcher
         start_date: 2024-10
-        end_date: Present
+        end_date: present
         summary: >
-          Multimodal personalization and retrieval-augmented generation for education.
+          Multimodal personalization and retrieval-augmented generation.
         highlights:
           - Audio-visual sentiment modeling
-          - Knowledge-aware retrieval and labeling
-          - Empirical gains over baseline LLM tutors
+          - Knowledge-aware retrieval pipelines
 
-      - institution: NYU Dean’s Undergraduate Research Fund
-        position: Researcher
+      - company: New York University
+        position: Undergraduate Researcher (DURF)
         start_date: 2024-05
         end_date: 2024-08
         summary: >
-          Vision-language modeling research.
+          Vision–language modeling research.
         highlights:
           - BLIP-VQA fine-tuning with LoRA
           - MAE–BERT cross-attention architecture
@@ -142,10 +107,7 @@ cv:
         studyType: M.S. (Research Track)
         start_date: 2025-09
         end_date: 2027-06
-        score: "CGPA: 4.0 / 4.0"
-        highlights:
-          - Focus on AI systems, alignment, and advanced ML
-          - Graduate Teaching Assistant (Deep Learning, AI)
+        score: "4.0 / 4.0"
 
       - institution: New York University
         location: New York, NY / Shanghai, China
@@ -153,38 +115,32 @@ cv:
         studyType: B.S.
         start_date: 2021-08
         end_date: 2025-05
-        score: "CGPA: 3.7 / 4.0"
-        highlights:
-          - Concentration in Artificial Intelligence
-          - Minors in Mathematics and Business (NYU Stern)
+        score: "3.7 / 4.0"
 
     Skills:
       - name: Machine Learning
         keywords: >
-          Large Language Models, RAG, Recommender Systems, Reinforcement Learning,
+          LLMs, RAG, Recommender Systems, Reinforcement Learning,
           Multimodal Models, Representation Learning
 
       - name: Engineering & MLOps
         keywords: >
-          Python, FastAPI, Docker, Kubernetes, CI/CD, MLflow, DVC,
-          GCP, AWS, CUDA
-
-      - name: Data & Retrieval
-        keywords: >
-          Pinecone, ChromaDB, Weaviate, SQL, BigQuery, Hadoop
-
-      - name: Frontend & Product
-        keywords: >
-          Next.js, React, TypeScript, Tailwind CSS
+          Python, FastAPI, Docker, Kubernetes, CI/CD, MLflow, GCP, AWS
 
     Awards:
       - title: Gaurini Merit Scholarship (50% Tuition)
-        awarder: Dartmouth College
+        authors:
+          - Dartmouth College
         date: 2025-09
+        awarder: Dartmouth College
+        summary: Merit-based graduate scholarship.
 
       - title: Best Research Poster
-        awarder: NYU Undergraduate Research Symposium
+        authors:
+          - New York University
         date: 2024-11
+        awarder: NYU Undergraduate Research Symposium
+        summary: Awarded for undergraduate research presentation.
 
     Languages:
       - name: English
