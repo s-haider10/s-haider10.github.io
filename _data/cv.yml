@@ -1,143 +1,195 @@
 cv:
-name: Syed Ali Haider
-label: Machine Learning Engineer & Researcher
-email: syed.ali.haider.gr@dartmouth.edu
-location: Hanover, NH
-image: ""
-summary: MSCS Researcher at Dartmouth and former NYU scholar specializing in LLM systems, agentic workflows, and Mechanistic Interpretability. Shipped 8+ ML systems across VC, RecSys, and EdTech domains.
-social_networks:
-- network: LinkedIn
-username: haider-tech
-- network: GitHub
-username: s-haider10
-- network: Portfolio
-username: syedhaider.vercel.app
-address:
-street: ""
-city: Hanover
-region: New Hampshire
-postalCode: "03755"
-countryCode: US
-sections:
-Education:
-- institution: Dartmouth College
-location: Hanover, NH
-area: Computer Science (Research Track)
-studyType: Master of Science
-start_date: 2025-09
-end_date: 2027-06
-score: 4.0/4.0
-highlights:
-- Guarini Merit-based 50% Tuition Scholarship.
-- Focus: AI Agents, Reinforcement Learning, and Mechanistic Interpretability.
-  - institution: New York University (NYU) Shanghai
-    location: Shanghai, China
-    area: Computer Science (AI Concentration)
-    studyType: Bachelor of Science
-    start_date: 2021-08
-    end_date: 2025-05
-    score: 3.72/4.0
-    courses: Algorithms, NLP, Computer Vision, Big Data, Quantum Computing, Linear Algebra.
-    highlights:
-      - Minors: Mathematics, Business Administration (NYU Stern), Data Science.
-      - Dean’s List for Academic Excellence (2021–2023).
+  name: Syed Ali Haider
+  label: Machine Learning Engineer / AI Research Engineer
+  email: syed.ali.haider.gr@dartmouth.edu
+  location: New York City, NY / Hanover, NH
+  image: ""
 
-Experience:
-  - company: SEHAS Lab (Dartmouth)
-    position: Graduate Researcher
-    location: Hanover, NH
-    start_date: 2025-12
-    end_date: Present
-    summary: Alignment research via Reinforcement Learning and Mechanistic Interpretability under Prof. Nikhil Singh.
-    highlights:
-      - Investigating internal representations of Open-Weights models for safety alignment.
-  - company: Intellia AI
-    position: ML Engineer Intern
-    location: New York, NY
-    start_date: 2025-05
-    end_date: 2025-09
-    summary: Built a full-stack AI platform automating research via agentic RAG workflows.
-    highlights:
-      - Reduced due diligence time from 1 week to < 5 minutes using agentic flows and LangChain
-      - Deployed containerized core engine on GCP using Docker and Pinecone.
+  summary: >
+    Machine Learning Engineer working at the frontier of large language models,
+    agentic systems, and multimodal learning. Proven ability to take ideas from
+    research prototypes to production-grade AI systems used by real users.
+    Experience spans RAG pipelines, recommender systems, reinforcement learning,
+    and multimodal models, with a strong bias toward execution, scalability,
+    and measurable impact. Actively building and researching AI-native products.
 
-  - company: Khudi Ventures (Dil Ka Rishta)
-    position: ML Engineer Intern (RecSys)
-    location: Islamabad, Pakistan
-    start_date: 2024-06
-    end_date: 2024-09
-    summary: Optimized matching algorithms for 1M+ profiles using Deep Learning and RLHF.
-    highlights:
-      - Achieved 30% higher user engagement using graph-based matchmaking and vector embeddings.
-      - Implemented RLHF using GPT-4 as a reward model for preference alignment.
+  social_networks:
+    - network: GitHub
+      username: s-haider10
+    - network: LinkedIn
+      username: haider-tech
 
-  - company: Reckitt Benckiser
-    position: Data Science Intern
-    location: Dubai, UAE (Remote)
-    start_date: 2024-05
-    end_date: 2024-07
-    summary: Architected a competitive pricing engine using XGBoost and Ensemble methods.
-    highlights:
-      - Achieved 97.93% accuracy in forecasting models, an 11% improvement over legacy systems.
+  sections:
 
-Academic Research:
-  - institution: NYU MAPS Lab
-    position: Researcher
-    location: New York, NY
-    start_date: 2024-10
-    end_date: Present
-    summary: Developed Kiwi+ (NEVA), a context-aware educational chatbot for STEM education.
-    highlights:
-      - Implemented multi-LLM router (Mixtral-8x7B + GPT-4 Turbo) with confidence scoring.
+    Experience:
+      - company: Intellia AI
+        position: Machine Learning Engineer Intern
+        location: Remote
+        start_date: 2025-05
+        end_date: 2025-09
+        summary: >
+          Owned the design and deployment of an end-to-end agentic AI platform
+          for automated research and technical due diligence.
+        highlights:
+          - Built production RAG pipelines (LangChain, Pinecone, FastAPI) over proprietary data
+          - Reduced research turnaround from ~1 week to under 5 minutes
+          - Deployed containerized ML services on GCP with Docker and CI/CD
+          - Implemented evaluation, validation, and safety checks aligned with Responsible AI
+          - Demoed system to VCs; directly supported fundraising workflows
 
+      - company: Khudi Ventures (Dil Ka Rishta)
+        position: Machine Learning Engineer Intern (Recommender Systems)
+        location: Remote
+        start_date: 2024-06
+        end_date: 2024-09
+        summary: >
+          Built large-scale personalization and matchmaking systems combining
+          graph algorithms, embeddings, and reinforcement learning.
+        highlights:
+          - Designed matching algorithm over 1M+ user profiles using graph representations
+          - Implemented embedding-based user representations with Pinecone
+          - Applied reinforcement learning with sentiment-based reward modeling
+          - Achieved ~30% increase in user engagement via controlled A/B testing
+          - Architected FastAPI backend and analytics dashboard for experimentation
 
+      - company: Listen.dev (Garnet.ai)
+        position: Software Engineer Intern
+        location: Remote
+        start_date: 2023-06
+        end_date: 2023-09
+        summary: >
+          Worked on real-time generative AI systems for cybersecurity monitoring.
+        highlights:
+          - Built streaming AI pipeline to summarize and classify live threat data
+          - Ingested and analyzed 20k+ historical security incidents
+          - Reduced analyst workload by ~80% through automated reporting
+          - Enabled zero-shot classification of novel threat categories
 
-  - institution: NYU Dean’s Undergraduate Research Fund (DURF)
-    position: Researcher
-    location: New York, NY
-    start_date: 2024-05
-    end_date: 2024-08
-    summary: Fine-tuned BLIP-VQA model with LoRA layers for Visual Question Answering.
-    highlights:
-      - Improved accuracy by 2.37% on the COCO dataset using MAE-BERT architecture.
+      - company: Reckitt Benckiser
+        position: Data Science Intern
+        location: MENA
+        start_date: 2024-05
+        end_date: 2024-07
+        summary: >
+          Developed forecasting and pricing intelligence systems for large-scale markets.
+        highlights:
+          - Built ensemble ML models achieving 97.9% accuracy
+          - Automated ETL pipelines for pricing and promotion data
+          - Applied game-theoretic simulations to competitive pricing strategy
+          - Delivered dashboards used by regional decision-makers
 
-Awards:
-  - title: Best Poster Presentation
-    awarder: Technigala, Dartmouth College
-    date: 2025-11
-  - title: Best Research Poster
-    awarder: NYU Undergraduate Research Symposium
-    date: 2024-11
-  - title: Scholar’s Full Ride Award ($6500)
-    awarder: Yale Young Global Scholars
-    date: 2019-07
+    Startups & Products:
+      - name: NEVA (Navigating Education Via AI)
+        role: Co-Founder / Lead ML Engineer
+        start_date: 2024-11
+        end_date: Present
+        summary: >
+          AI-native educational platform focused on contextual, multimodal learning.
+        highlights:
+          - Full-stack system (Next.js, FastAPI, Docker)
+          - Agentic RAG with confidence-aware multi-LLM routing
+          - Integrated generative Manim video explanations
+          - 80+ active university users; top-tier YC-style applicant traction
 
+      - name: DEXA
+        role: Creator
+        start_date: 2025-02
+        end_date: 2025-05
+        summary: >
+          Natural-language-driven data analysis agent for analysts and engineers.
+        highlights:
+          - Created DataExplainBench benchmark
+          - Improved code generation success from 88% → 99.3%
+          - Automated evaluation via CI/CD
 
+    Research:
+      - institution: SEHAS Lab, Dartmouth College
+        position: Researcher
+        start_date: 2025-12
+        end_date: Present
+        summary: >
+          Research on alignment and interpretability of learning systems.
+        highlights:
+          - Reinforcement learning for policy alignment
+          - Mechanistic interpretability of learned representations
 
-Skills:
-  - name: AI/ML Stack
-    level: Expert
-    keywords: PyTorch, TensorFlow, LangChain, Transformers, RLHF, RAG, Pinecone, LoRA, Hugging Face.
-  - name: Engineering
-    level: Expert
-    keywords: Python, TypeScript, Java, C++, FastAPI, Docker, GCP, SQL, NoSQL.
+      - institution: NYU MAPS Lab
+        position: Researcher
+        start_date: 2024-10
+        end_date: Present
+        summary: >
+          Multimodal personalization and retrieval-augmented generation for education.
+        highlights:
+          - Audio-visual sentiment modeling
+          - Knowledge-aware retrieval and labeling
+          - Empirical gains over baseline LLM tutors
 
-Projects:
-  - name: NEVA (Navigating Education Via AI)
-    summary: Full-stack EdTech platform using RAG and generative Manim video; Top 10% of YC applicants.
-    start_date: 2024-11
-    end_date: Present
-  - name: DEXA (Data Exploration via eXplanatory AI)
-    summary: AI agent for natural language data analysis; increased code gen success to 99.3%.
-    start_date: 2025-02
-    end_date: 2025-05
+      - institution: NYU Dean’s Undergraduate Research Fund
+        position: Researcher
+        start_date: 2024-05
+        end_date: 2024-08
+        summary: >
+          Vision-language modeling research.
+        highlights:
+          - BLIP-VQA fine-tuning with LoRA
+          - MAE–BERT cross-attention architecture
+          - +2.37% accuracy on COCO VQA
 
+    Education:
+      - institution: Dartmouth College
+        location: Hanover, NH, USA
+        area: Computer Science
+        studyType: M.S. (Research Track)
+        start_date: 2025-09
+        end_date: 2027-06
+        score: "CGPA: 4.0 / 4.0"
+        highlights:
+          - Focus on AI systems, alignment, and advanced ML
+          - Graduate Teaching Assistant (Deep Learning, AI)
 
+      - institution: New York University
+        location: New York, NY / Shanghai, China
+        area: Computer Science
+        studyType: B.S.
+        start_date: 2021-08
+        end_date: 2025-05
+        score: "CGPA: 3.7 / 4.0"
+        highlights:
+          - Concentration in Artificial Intelligence
+          - Minors in Mathematics and Business (NYU Stern)
 
-Languages:
-  - name: English
-    summary: Native/Fluent
-  - name: Urdu/Punjabi
-    summary: Native
-  - name: Mandarin
-    summary: Elementary proficiency
+    Skills:
+      - name: Machine Learning
+        keywords: >
+          Large Language Models, RAG, Recommender Systems, Reinforcement Learning,
+          Multimodal Models, Representation Learning
+
+      - name: Engineering & MLOps
+        keywords: >
+          Python, FastAPI, Docker, Kubernetes, CI/CD, MLflow, DVC,
+          GCP, AWS, CUDA
+
+      - name: Data & Retrieval
+        keywords: >
+          Pinecone, ChromaDB, Weaviate, SQL, BigQuery, Hadoop
+
+      - name: Frontend & Product
+        keywords: >
+          Next.js, React, TypeScript, Tailwind CSS
+
+    Awards:
+      - title: Gaurini Merit Scholarship (50% Tuition)
+        awarder: Dartmouth College
+        date: 2025-09
+
+      - title: Best Research Poster
+        awarder: NYU Undergraduate Research Symposium
+        date: 2024-11
+
+    Languages:
+      - name: English
+        summary: Native / Fluent
+      - name: Urdu
+        summary: Native
+      - name: Mandarin
+        summary: Elementary
