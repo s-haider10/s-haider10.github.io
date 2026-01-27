@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: syed ali haider # the website title (if blank, full name will be used instead)
+title: Syed Ali H. # the website title (if blank, full name will be used instead)
 first_name: Syed
 middle_name: Ali
 last_name: Haider
@@ -11,10 +11,9 @@ contact_note: >
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Masters Student at Dartmouth College. Interested in Agents, Multimodal Models, and AI Alignment.
 footer_text: >
-  © {{ site.time | date: "%Y" }} Syed Ali Haider. Built with jekyll.
-keywords: syed ali haider, masters student, dartmouth college, agents, multimodal models, ai alignment, artificial intelligence, machine learning, data science, research, programming, technology, software engineering
+keywords: syed ali haider, masters student, dartmouth college, agents, multimodal models, ai alignment, artificial intelligence, machine learning, data science, research, programming, AI, technology, software engineering
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: 🏂 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://s-haider10.github.io # the base hostname & protocol for your site
 baseurl:  # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -53,10 +52,10 @@ external_services:
 
 navbar_fixed: true
 footer_fixed: true
-search_enabled: true
-socials_in_search: true
-posts_in_search: true
-bib_search: true
+search_enabled: false
+socials_in_search: false
+posts_in_search: false
+bib_search: false
 
 # Dimensions
 max_width: 930px
