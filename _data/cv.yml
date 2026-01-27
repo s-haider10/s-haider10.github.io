@@ -117,15 +117,27 @@ cv:
         end_date: 2025-05
         score: "3.7 / 4.0"
 
-    Skills:
-      - name: Machine Learning
-        keywords: >
-          LLMs, RAG, Recommender Systems, Reinforcement Learning,
-          Multimodal Models, Representation Learning
+Skills:
+  - name: Machine Learning
+    keywords:
+      - LLMs
+      - RAG
+      - Recommender Systems
+      - Reinforcement Learning
+      - Multimodal Models
+      - Representation Learning
 
-      - name: Engineering & MLOps
-        keywords: >
-          Python, FastAPI, Docker, Kubernetes, CI/CD, MLflow, GCP, AWS
+  - name: Engineering & MLOps
+    keywords:
+      - Python
+      - FastAPI
+      - Docker
+      - Kubernetes
+      - CI/CD
+      - MLflow
+      - GCP
+      - AWS
+
 
     Awards:
       - title: Gaurini Merit Scholarship (50% Tuition)
