@@ -122,7 +122,10 @@ layout: default
 
         <!-- RenderCV Sections - Merge Experience and Volunteer -->
         {% comment %} First, combine Experience and Volunteer entries {% endcomment %}
-        {% assign combined_experience = cv.sections.Experience | concat: cv.sections.Volunteer %}
+        {% assign empty_array = "" | split: "" %}
+        {% assign exp_array = cv.sections.Experience | default: empty_array %}
+        {% assign vol_array = cv.sections.Volunteer | default: empty_array %}
+        {% assign combined_experience = exp_array | concat: vol_array %}
         {% if combined_experience.size > 0 %}
           <a class="anchor" id="experience"></a>
           <div class="card mt-3 p-3">
@@ -258,7 +261,9 @@ layout: default
         {% endif %}
 
         <!-- JSONResume Sections - Merge work and volunteer into Experience -->
-        {% assign combined_experience = site.data.resume.work | concat: site.data.resume.volunteer %}
+        {% assign work_array = site.data.resume.work | default: empty %}
+        {% assign volunteer_array = site.data.resume.volunteer | default: empty %}
+        {% assign combined_experience = work_array | concat: volunteer_array %}
         {% if combined_experience.size > 0 %}
           <a class="anchor" id="experience"></a>
           <div class="card mt-3 p-3">
