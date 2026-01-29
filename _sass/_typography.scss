@@ -4,6 +4,37 @@
 
 @use "variables" as v;
 
+// Global font family - Lora for body text (editorial serif look)
+body {
+  font-family: 'Lora', Georgia, serif;
+}
+
+// Headers use Playfair Display for editorial elegance
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+h4,
+h5,
+h6 {
+  font-family: 'Lora', Georgia, serif;
+}
+
+// Main page title (name) - italicized, weight 500, left-aligned
+.post-header .post-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  text-align: left;
+}
+
+// Subtitle/description left-aligned as well
+.post-header .desc {
+  text-align: left;
+}
+
 p,
 h1,
 h2,

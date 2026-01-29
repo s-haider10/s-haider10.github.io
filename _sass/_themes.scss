@@ -6,42 +6,41 @@
 
 :root {
   color-scheme: light;
-  --global-bg-color: #{v.$white-color};
-  --global-code-bg-color: #{v.$code-bg-color-light};
-  --global-text-color: #{v.$black-color};
-  --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$purple-color};
-  --global-hover-color: #{v.$purple-color};
-  --global-hover-text-color: #{v.$white-color};
-  --global-footer-bg-color: #{v.$grey-color-dark};
-  --global-footer-text-color: #{v.$grey-color-light};
-  --global-footer-link-color: #{v.$white-color};
-  --global-distill-app-color: #{v.$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{v.$white-color};
-  --global-highlight-color: #{v.$red-color-dark};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel(v.$black-color, "red", v.$space: rgb)},
-    #{color.channel(v.$black-color, "green", v.$space: rgb)},
-    #{color.channel(v.$black-color, "blue", v.$space: rgb)},
-    0.4
-  );
-  --global-back-to-top-text-color: #{v.$white-color};
-  --global-newsletter-bg-color: #{v.$white-color};
-  --global-newsletter-text-color: #{v.$black-color};
+  // Warm Minimalist Light Theme - Creamy (10% warmer)
+  --global-bg-color: #f5efe1; // Richer cream background
+  --global-code-bg-color: #eee7d6;
+  --global-text-color: #2c2a26; // Warm dark brown instead of pure black
+  --global-text-color-light: #6b6860;
+  --global-theme-color: #8b7355; // Warm brown/clay accent
+  --global-hover-color: #6d5a45; // Darker brown on hover
+  --global-hover-text-color: #f5efe1;
+  --global-footer-bg-color: #f5efe1; // Match main background for consistency
+  --global-footer-text-color: #6b6860;
+  --global-footer-link-color: #8b7355;
+  --global-distill-app-color: #6b6860;
+  --global-divider-color: rgba(44, 42, 38, 0.12);
+  --global-card-bg-color: transparent; // Flat cards
+  --global-badge-text-color: #f5efe1; // Light text on badges for contrast
+  --global-highlight-color: #a85c5c;
+  --global-profile-card-bg: #f2f0e6; // Warm Paper for magazine card
+  --global-back-to-top-bg-color: rgba(139, 115, 85, 0.4);
+  --global-back-to-top-text-color: #f5efe1;
+  --global-newsletter-bg-color: #eee7d6;
+  --global-newsletter-text-color: #2c2a26;
 
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
+  // Warm-toned alert blocks for light mode
+  --global-tip-block: #5a7a55;
+  --global-tip-block-bg: #e8f0e6;
+  --global-tip-block-text: #2d3d2b;
+  --global-tip-block-title: #4a6a45;
+  --global-warning-block: #b8962a;
+  --global-warning-block-bg: #fdf6e3;
+  --global-warning-block-text: #5c4a15;
+  --global-warning-block-title: #9a7d20;
+  --global-danger-block: #a85c5c;
+  --global-danger-block-bg: #fae8e8;
+  --global-danger-block-text: #5c2c2c;
+  --global-danger-block-title: #984848;
 
   #light-toggle-system {
     display: inline-block;
@@ -76,41 +75,40 @@
 
 html[data-theme="dark"] {
   color-scheme: dark;
-  --global-bg-color: #{v.$grey-color-dark};
-  --global-code-bg-color: #{v.$code-bg-color-dark};
-  --global-text-color: #{v.$grey-color-light};
-  --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$cyan-color};
-  --global-hover-color: #{v.$cyan-color};
-  --global-hover-text-color: #{v.$white-color};
-  --global-footer-bg-color: #{v.$grey-color-light};
-  --global-footer-text-color: #{v.$grey-color-dark};
-  --global-footer-link-color: #{v.$black-color};
-  --global-distill-app-color: #{v.$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{v.$grey-900};
-  --global-back-to-top-bg-color: rgba(
-    #{color.channel(v.$white-color, "red", v.$space: rgb)},
-    #{color.channel(v.$white-color, "green", v.$space: rgb)},
-    #{color.channel(v.$white-color, "blue", v.$space: rgb)},
-    0.5
-  );
-  --global-back-to-top-text-color: #{v.$black-color};
-  --global-newsletter-bg-color: #{v.$grey-color-light};
-  --global-newsletter-text-color: #{v.$grey-color-dark};
+  // Warm Minimalist Dark Theme
+  --global-bg-color: #1c1b1a; // Warm charcoal instead of cold black
+  --global-code-bg-color: #252422; // Slightly lighter warm tone
+  --global-text-color: #f0efe9; // Warm cream text
+  --global-text-color-light: #a8a5a0; // Muted warm gray
+  --global-theme-color: #d4c5b0; // Soft gold/clay accent
+  --global-hover-color: #e8d9c4; // Lighter gold on hover
+  --global-hover-text-color: #1c1b1a; // Dark text on hover
+  --global-footer-bg-color: #1c1b1a; // Match main background
+  --global-footer-text-color: #a8a5a0; // Muted warm gray
+  --global-footer-link-color: #d4c5b0; // Gold links
+  --global-distill-app-color: #a8a5a0;
+  --global-divider-color: #3a3835; // Warm dark divider
+  --global-card-bg-color: transparent; // Transparent for flat look
+  --global-profile-card-bg: #2b2928; // Deep Warm Espresso for magazine card
+  --global-badge-text-color: #1c1b1a; // Dark text on badges for contrast
+  --global-back-to-top-bg-color: rgba(212, 197, 176, 0.3); // Soft gold
+  --global-back-to-top-text-color: #f0efe9;
+  --global-newsletter-bg-color: #252422;
+  --global-newsletter-text-color: #f0efe9;
 
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #215d42;
-  --global-tip-block-text: #beffe2;
-  --global-tip-block-title: #e2f5ec;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #6b5900;
-  --global-warning-block-text: #fff2af;
-  --global-warning-block-title: #fff8d8;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #600;
-  --global-danger-block-text: #ffb9b9;
-  --global-danger-block-title: #ffe0e0;
+  // Warm-toned alert blocks
+  --global-tip-block: #7d9a78; // Muted sage green
+  --global-tip-block-bg: #2a3329;
+  --global-tip-block-text: #d4e5d0;
+  --global-tip-block-title: #a8c9a2;
+  --global-warning-block: #c9a855; // Warm amber
+  --global-warning-block-bg: #3d3422;
+  --global-warning-block-text: #f5e8c8;
+  --global-warning-block-title: #e5d090;
+  --global-danger-block: #b85c5c; // Muted warm red
+  --global-danger-block-bg: #3d2828;
+  --global-danger-block-text: #f5d0d0;
+  --global-danger-block-title: #e0a0a0;
 
   .only-light {
     display: none;

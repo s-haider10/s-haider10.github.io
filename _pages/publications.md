@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: research
-description: Preprints and research papers in reversed chronological order.
+description: Preprints and technical reports in reversed chronological order.
 nav: true
 nav_order: 2
 ---

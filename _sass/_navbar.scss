@@ -7,8 +7,11 @@
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
+  background-color: var(--global-bg-color); // Solid background
   opacity: 0.95;
+
+  // Use serif font for nav links (editorial look)
+  font-family: 'Lora', Georgia, serif;
 }
 
 .navbar .dropdown-menu,
@@ -57,10 +60,14 @@
 
   .navbar-brand {
     color: var(--global-text-color);
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400; // No bolding
   }
 
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 400; // No bolding for clean editorial look
 
     &:hover {
       color: var(--global-hover-color);
@@ -69,7 +76,7 @@
 
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    font-weight: 500; // Slightly heavier for active, but not bold
     color: var(--global-theme-color);
 
     &:hover {

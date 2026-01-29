@@ -1,7 +1,8 @@
 ---
 layout: post
-date: 2025-09-15 07:59:00-0400
+date: 2025-09-02 12:00:00-0500
 inline: true
 related_posts: false
 ---
-Joined Dartmouth for my Masters in CS :smile:
+
+Started M.S. in Computer Science (Research Track) at Dartmouth College.

@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-05-15 16:11:00-0400
-inline: false
+date: 2025-11-10 12:00:00-0500
+inline: true
 related_posts: false
 ---
 
-Graduated from New York University ungrad in CS 
+Received Best Poster Presentation Award at Technigala, Dartmouth College.

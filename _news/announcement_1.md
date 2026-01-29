@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2026-01-10 15:59:00-0400
+date: 2026-01-03 12:00:00-0500
 inline: true
 related_posts: false
 ---
 
-Joined the SEHAS group 
+Joined SEHAS Lab at Dartmouth for alignment and mechanistic interpretability research.
