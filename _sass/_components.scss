@@ -285,6 +285,87 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// Scoped horizontal scroll for about page only (selected projects)
+.about-page .projects {
+  // Scroll hint
+  &::after {
+    content: 'scroll \2192'; // "scroll →"
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    color: var(--global-text-color-light);
+    opacity: 0.7;
+    pointer-events: none;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--global-bg-color) 30%
+    );
+    padding-left: 2.5rem;
+    z-index: 1;
+    // Subtle nudge animation
+    animation: nudgeRight 2s ease-in-out infinite;
+  }
+
+  // Hide hint on hover
+  &:hover::after {
+    opacity: 0;
+    animation: none;
+  }
+
+  // Horizontal scroll container
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
+
+    // Styled scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: var(--global-divider-color) transparent;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--global-divider-color);
+      border-radius: 2px;
+    }
+  }
+
+  // Fixed width project cards for horizontal scroll
+  .col {
+    flex: 0 0 280px;
+    width: 280px;
+    min-width: 280px;
+    max-width: 280px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  // Nudge animation for horizontal scroll
+  @keyframes nudgeRight {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5px);
+    }
+  }
+}
+
 // Repositories
 
 @media (min-width: 768px) {

@@ -37,30 +37,6 @@
     padding: 0;
     margin-top: 0;
 
-    // Vertical scroll container - show ~3 items
-    max-height: 480px;
-    overflow-y: auto;
-    padding-right: 1rem;
-    padding-bottom: 2rem;
-    position: relative;
-
-    // Styled scrollbar
-    scrollbar-width: thin;
-    scrollbar-color: var(--global-divider-color) transparent;
-
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--global-divider-color);
-      border-radius: 2px;
-    }
-
     li {
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
@@ -233,6 +209,41 @@
     }
   }
 
+}
+
+.citation,
+.citation-number {
+  color: var(--global-theme-color);
+}
+
+// Scoped scroll for about page only (selected papers)
+.about-page .publications {
+  ol.bibliography {
+    // Vertical scroll container - show ~3 items
+    max-height: 480px;
+    overflow-y: auto;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
+    position: relative;
+
+    // Styled scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: var(--global-divider-color) transparent;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--global-divider-color);
+      border-radius: 2px;
+    }
+  }
+
   // Scroll hint with text - right aligned
   &::after {
     content: 'scroll \2193'; // "scroll ↓"
@@ -273,9 +284,4 @@
       transform: translateY(5px);
     }
   }
-}
-
-.citation,
-.citation-number {
-  color: var(--global-theme-color);
 }
