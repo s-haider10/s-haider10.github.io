@@ -7,17 +7,17 @@ GitHub mobile app, no local environment required.
 
 ## Site map
 
-| Page | URL | Source |
-|---|---|---|
-| About (homepage) | `/` | `src/pages/index.astro` + `src/content/bio.md` |
-| Research | `/research` | `src/pages/research.astro` |
-| Paper detail | `/research/{slug}` | auto from `src/content/papers/` |
-| Projects | `/projects` | `src/pages/projects.astro` |
-| Writings | `/writings` | `src/pages/writings.astro` |
-| Writing detail | `/writings/{slug}` | auto from `src/content/writings/` (non-external only) |
-| News archive | `/news` | `src/pages/news.astro` |
-| Mountains | `/mountains` | `src/pages/mountains.astro` |
-| CV | `/cv.pdf` | `public/cv.pdf` |
+| Page             | URL                | Source                                                |
+| ---------------- | ------------------ | ----------------------------------------------------- |
+| About (homepage) | `/`                | `src/pages/index.astro` + `src/content/bio.md`        |
+| Research         | `/research`        | `src/pages/research.astro`                            |
+| Paper detail     | `/research/{slug}` | auto from `src/content/papers/`                       |
+| Projects         | `/projects`        | `src/pages/projects.astro`                            |
+| Writings         | `/writings`        | `src/pages/writings.astro`                            |
+| Writing detail   | `/writings/{slug}` | auto from `src/content/writings/` (non-external only) |
+| News archive     | `/news`            | `src/pages/news.astro`                                |
+| Mountains        | `/mountains`       | `src/pages/mountains.astro`                           |
+| CV               | `/cv.pdf`          | `public/cv.pdf`                                       |
 
 Header pattern, every page: `Syed **Ali** Haider — {PageName}` + nav.
 Homepage adds an `Ali — [photo]` hero block below the bar.
@@ -54,7 +54,7 @@ git push -u origin main --force
 ```
 
 > **Backup the old site first.** `git checkout -b al-folio-backup &&
-> git push origin al-folio-backup` on your existing repo before force-pushing.
+git push origin al-folio-backup` on your existing repo before force-pushing.
 
 ### 2. Enable GitHub Pages
 
@@ -113,14 +113,13 @@ New file at `src/content/papers/your-paper.md`:
 ---
 title: "Your Paper"
 venue: "NeurIPS 2026"
-status: in-progress     # or under-review, published, target
-theme: auditing-multi-agent   # or behavior-under-pressure, safety-deployment
+status: in-progress # or under-review, published, target
+theme: auditing-multi-agent # or behavior-under-pressure, safety-deployment
 date: 2026-05-12
 one_liner: "Single-sentence why-this-matters."
 pdf: /pdfs/your-paper.pdf
 code: https://github.com/...
 ---
-
 [paper writeup body]
 ```
 
@@ -133,7 +132,7 @@ Detail page auto-generates at `/research/your-paper`.
 ```yaml
 ---
 title: "Your Project"
-category: "Tools & systems"   # free-form, edit at will
+category: "Tools & systems" # free-form, edit at will
 date: 2026-05-12
 one_liner: "..."
 code: https://github.com/...
@@ -146,7 +145,7 @@ Categories are inferred from data. Add a new category by typing it.
 
 `src/content/writings/your-writing.md`:
 
-```yaml
+````yaml
 ---
 title: "Your essay"
 category: "On technology"   # free-form
@@ -163,7 +162,7 @@ print("hi")
 ​```
 
 Images: `![Caption](/images/figure.jpg)`.
-```
+````
 
 Detail page auto-generates at `/writings/your-writing`.
 
@@ -192,6 +191,7 @@ No detail page is generated.
 ## Frontmatter reference
 
 ### `papers/*.md`
+
 ```yaml
 title: string                   # required
 venue: string                   # required
@@ -206,6 +206,7 @@ order: number                   # optional, lower = earlier in theme
 ```
 
 ### `projects/*.md`
+
 ```yaml
 title: string                   # required
 category: string                # required, free-form
@@ -216,19 +217,21 @@ order: number                   # optional
 ```
 
 ### `writings/*.md`
+
 ```yaml
-title: string                   # required
-category: string                # required, free-form
-date: YYYY-MM-DD                # required
-one_liner: string               # optional
-external_url: string            # optional → publishes externally instead of generating a page
-draft: boolean                  # optional, default false
+title: string # required
+category: string # required, free-form
+date: YYYY-MM-DD # required
+one_liner: string # optional
+external_url: string # optional → publishes externally instead of generating a page
+draft: boolean # optional, default false
 ```
 
 ### `news/*.md`
+
 ```yaml
-date: YYYY-MM-DD                # required
-title: string                   # required
+date: YYYY-MM-DD # required
+title: string # required
 ```
 
 ---
@@ -251,8 +254,9 @@ Mobile collapses everything to single column; rail hides below 960px.
 ### Rebrand (1 line)
 
 `src/styles/global.css`:
+
 ```css
---accent: #6b2c20;   /* deep oxblood */
+--accent: #6b2c20; /* deep oxblood */
 ```
 
 Try `#1e3a5f` (navy), `#2c5f3d` (forest), `#3a3a3a` (charcoal).
