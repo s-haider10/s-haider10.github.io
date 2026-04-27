@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { Content as BioContent } from '../content/bio.md';
+
+const allNews = (await getCollection('news'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const VISIBLE = 5;
+const newsVisible = allNews.slice(0, VISIBLE);
+const newsExtra = allNews.slice(VISIBLE);
+
+const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
+  month: 'short', day: '2-digit', year: 'numeric',
+});
+---
+
+<Base pageName="About">
+  <div class="about-grid">
+    <div class="about-bio">
+      <BioContent />
+    </div>
+
+    <aside class="about-aside">
+      <!--
+        Replace /images/profile.svg with your headshot.
+        Keep the .svg path (overwrite the file) OR upload profile.jpg
+        and update src below.
+      -->
+      <img class="about-photo" src="/images/profile.jpg" alt="Syed Ali Haider" />
+
+      <div class="about-contact">
+        <a href="mailto:syed.ali.haider.gr@dartmouth.edu">syed.ali.haider.gr@dartmouth.edu</a>
+        <!-- Optional: uncomment to show location below the email
+        <span>Hanover, NH</span>
+        -->
+      </div>
+    </aside>
+  </div>
+
+  {newsVisible.length > 0 && (
+    <section>
+      <h2 id="news">News</h2>
+      <ul class="news" id="news-list">
+        {newsVisible.map(item => (
+          <li class="news-item">
+            <span class="news-date">{fmtDate(item.data.date)}</span>
+            <span>{item.data.title}</span>
+          </li>
+        ))}
+        {newsExtra.length > 0 && (
+          <template id="news-extra-tpl">
+            {newsExtra.map(item => (
+              <li class="news-item news-item-extra">
+                <span class="news-date">{fmtDate(item.data.date)}</span>
+                <span>{item.data.title}</span>
+              </li>
+            ))}
+          </template>
+        )}
+      </ul>
+      {newsExtra.length > 0 && (
+        <button type="button" class="news-toggle" id="news-toggle"
+                aria-expanded="false" aria-controls="news-list">
+          + show more ({newsExtra.length})
+        </button>
+      )}
+    </section>
+  )}
+</Base>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById('news-toggle');
+    const tpl = document.getElementById('news-extra-tpl');
+    const list = document.getElementById('news-list');
+    if (!btn || !tpl || !list) return;
+    let appended = false;
+    btn.addEventListener('click', () => {
+      if (!appended) {
+        list.appendChild(tpl.content.cloneNode(true));
+        appended = true;
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = '− show less';
+        return;
+      }
+      const extras = list.querySelectorAll('.news-item-extra');
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      extras.forEach(el => { el.style.display = open ? 'none' : ''; });
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      btn.textContent = open ? `+ show more (${extras.length})` : '− show less';
+    });
+  })();
+</script>

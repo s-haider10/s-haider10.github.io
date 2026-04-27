@@ -1,0 +1,50 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+
+export const getStaticPaths = (async () => {
+  const writings = await getCollection('writings');
+  // Only generate detail pages for internal writings (no external_url)
+  return writings
+    .filter(w => !w.data.external_url && !w.data.draft)
+    .map(w => ({
+      params: { slug: w.id },
+      props: { writing: w },
+    }));
+}) satisfies GetStaticPaths;
+
+const { writing } = Astro.props;
+const { data } = writing;
+const { Content } = await render(writing);
+
+const fmtDate = data.date.toLocaleDateString('en-US', {
+  month: 'long', day: 'numeric', year: 'numeric',
+});
+---
+
+<Base
+  pageName={data.title}
+  description={data.one_liner ?? `${data.category} — ${data.title}`}
+  layout="wide"
+>
+  <article class="detail">
+    <h1>{data.title}</h1>
+
+    <div class="meta">
+      <span>{data.category}</span>
+      <span class="sep">·</span>
+      <span>{fmtDate}</span>
+    </div>
+
+    {data.one_liner && <p class="one-liner">{data.one_liner}</p>}
+
+    <div class="body">
+      <Content />
+    </div>
+
+    <div class="back">
+      <a href="/writings">← writings</a>
+    </div>
+  </article>
+</Base>

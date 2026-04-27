@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Syed Ali Haider">
+  <rect width="200" height="200" fill="#f5f3ee"/>
+  <rect x="0" y="0" width="200" height="200" fill="none" stroke="#e6e2d8" stroke-width="2"/>
+  <text x="100" y="118" text-anchor="middle"
+        font-family="Newsreader, Georgia, serif"
+        font-size="72" font-weight="500"
+        font-style="italic"
+        fill="#6b2c20">SAH</text>
+</svg>

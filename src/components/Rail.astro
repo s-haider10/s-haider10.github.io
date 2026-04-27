@@ -1,0 +1,53 @@
+---
+// The rail appears on desktop (≥960px) only. On mobile it's hidden via CSS.
+//
+// Pages pass in their own `sections` prop — different pages have different
+// in-page anchors. Contact links are always shown.
+
+interface Section {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  sections?: Section[];
+}
+
+const { sections = [] } = Astro.props;
+
+const contact = [
+  { href: 'mailto:syed.ali.haider.gr@dartmouth.edu', label: 'email' },
+  { href: 'https://github.com/s-haider10',           label: 'github' },
+  { href: 'https://scholar.google.com/',             label: 'scholar' },
+];
+---
+
+<aside class="rail" aria-label="Page navigation">
+  {sections.length > 0 && (
+    <div class="rail-section">
+      <div class="rail-heading">On this page</div>
+      <ul>
+        {sections.map(s => (
+          <li><a href={`#${s.id}`}>{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="rail-section">
+    <div class="rail-heading">Contact</div>
+    <ul>
+      {contact.map(c => (
+        <li>
+          <a
+            href={c.href}
+            target={c.href.startsWith('http') ? '_blank' : undefined}
+            rel={c.href.startsWith('http') ? 'noopener' : undefined}
+          >
+            {c.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>

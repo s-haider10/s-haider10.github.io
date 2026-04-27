@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  paper: CollectionEntry<'papers'>;
+}
+
+const { paper } = Astro.props;
+const { data, id } = paper;
+
+// Bold any author whose name contains "Haider" (case-insensitive).
+// This handles "Syed Ali Haider", "Syed Haider", "S. A. Haider", etc.
+const isSelf = (name: string) => /haider/i.test(name);
+
+const links: { label: string; href: string }[] = [];
+if (data.pdf)          links.push({ label: 'pdf',     href: data.pdf });
+if (data.code)         links.push({ label: 'code',    href: data.code });
+if (data.arxiv)        links.push({ label: 'arxiv',   href: data.arxiv });
+if (data.poster)       links.push({ label: 'poster',  href: data.poster });
+if (data.project_page) links.push({ label: 'site',    href: data.project_page });
+---
+
+<article class="row">
+  <div class="row-title">
+    <a href={`/research/${id}`}>{data.title}</a>
+  </div>
+
+  {data.authors && data.authors.length > 0 && (
+    <div class="row-authors">
+      {data.authors.map((author, i) => (
+        <>
+          {i > 0 && ', '}
+          {isSelf(author) ? <strong>{author}</strong> : <span>{author}</span>}
+        </>
+      ))}
+    </div>
+  )}
+
+  <div class="row-meta">
+    <span>{data.venue}</span>
+  </div>
+
+  <div class="row-desc">{data.one_liner}</div>
+
+  {links.length > 0 && (
+    <div class="row-links">
+      {links.map(l => (
+        <a
+          href={l.href}
+          target={l.href.startsWith('http') ? '_blank' : undefined}
+          rel={l.href.startsWith('http') ? 'noopener' : undefined}
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+  )}
+</article>

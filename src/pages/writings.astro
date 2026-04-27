@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Rail from '../components/Rail.astro';
+
+const all = (await getCollection('writings'))
+  .filter(w => !w.data.draft);
+
+const grouped = new Map<string, typeof all>();
+for (const w of all) {
+  const cat = w.data.category;
+  if (!grouped.has(cat)) grouped.set(cat, []);
+  grouped.get(cat)!.push(w);
+}
+for (const [, items] of grouped) {
+  items.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+}
+
+const categories = [...grouped.keys()].sort();
+
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+const sections = categories.map(cat => ({
+  id: slugify(cat),
+  label: cat.toLowerCase(),
+}));
+
+const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
+  month: 'short', day: '2-digit', year: 'numeric',
+});
+---
+
+<Base
+  pageName="Writings"
+  layout="with-rail"
+  description="Essays, lecture notes, and other writing."
+>
+  <Rail sections={sections} />
+
+  <div class="layout-main">
+    <p class="page-intro">
+      Essays, lecture notes, and takes — some written here, some published
+      externally and linked out.
+    </p>
+
+    {categories.map(cat => (
+      <section class="theme">
+        <h2 id={slugify(cat)} class="theme-h2">{cat}</h2>
+        {grouped.get(cat)!.map(w => {
+          const isExt = !!w.data.external_url;
+          const href = isExt ? w.data.external_url! : `/writings/${w.id}`;
+          return (
+            <article class="row">
+              <div class="row-title">
+                <a
+                  href={href}
+                  target={isExt ? '_blank' : undefined}
+                  rel={isExt ? 'noopener' : undefined}
+                >
+                  {w.data.title}{isExt && <span class="ext-arrow"> ↗</span>}
+                </a>
+              </div>
+              <div class="row-meta">
+                <span>{fmtDate(w.data.date)}</span>
+              </div>
+              {w.data.one_liner && (
+                <div class="row-desc">{w.data.one_liner}</div>
+              )}
+            </article>
+          );
+        })}
+      </section>
+    ))}
+
+    {categories.length === 0 && (
+      <p style="color: var(--muted); margin-top: var(--s-3);">
+        Nothing here yet.
+      </p>
+    )}
+  </div>
+</Base>

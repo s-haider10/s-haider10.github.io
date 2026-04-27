@@ -1,0 +1,24 @@
+---
+// Edit these in one place — they appear in the footer of every page.
+const links = [
+  { href: 'mailto:syed.ali.haider.gr@dartmouth.edu', label: 'email' },
+  { href: 'https://github.com/s-haider10',             label: 'github' },
+  { href: 'https://scholar.google.com/',               label: 'scholar' },
+  { href: 'https://x.com/',                            label: 'x' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div>© {year} Syed Ali Haider</div>
+    <div class="links">
+      {links.map(l => (
+        <a href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel={l.href.startsWith('http') ? 'noopener' : undefined}>
+          {l.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

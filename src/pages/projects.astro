@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Rail from '../components/Rail.astro';
+import ProjectRow from '../components/ProjectRow.astro';
+
+const all = await getCollection('projects');
+
+const grouped = new Map<string, typeof all>();
+for (const p of all) {
+  const cat = p.data.category;
+  if (!grouped.has(cat)) grouped.set(cat, []);
+  grouped.get(cat)!.push(p);
+}
+for (const [, items] of grouped) {
+  items.sort((a, b) => {
+    const orderDiff = (a.data.order ?? 0) - (b.data.order ?? 0);
+    if (orderDiff !== 0) return orderDiff;
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
+}
+
+const categories = [...grouped.keys()].sort();
+
+const slugify = (s: string) =>
+  s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+const sections = categories.map(cat => ({
+  id: slugify(cat),
+  label: cat.toLowerCase(),
+}));
+---
+
+<Base
+  pageName="Projects"
+  layout="with-rail"
+  description="Applied projects, systems, and research prototypes."
+>
+  <Rail sections={sections} />
+
+  <div class="layout-main">
+    <p class="page-intro">
+      Applied work, tools, and earlier prototypes — grouped by what they were
+      for rather than when they were built.
+    </p>
+
+    {categories.map(cat => (
+      <section class="theme">
+        <h2 id={slugify(cat)} class="theme-h2">{cat}</h2>
+        {grouped.get(cat)!.map(item => <ProjectRow item={item} />)}
+      </section>
+    ))}
+  </div>
+</Base>

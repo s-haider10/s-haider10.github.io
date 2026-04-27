@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  item: CollectionEntry<'projects'>;
+}
+
+const { item } = Astro.props;
+const { data } = item;
+
+const links: { label: string; href: string }[] = [];
+if (data.pdf)          links.push({ label: 'pdf',  href: data.pdf });
+if (data.code)         links.push({ label: 'code', href: data.code });
+if (data.project_page) links.push({ label: 'site', href: data.project_page });
+
+const year = data.date.getFullYear();
+const metaPieces = [data.venue, String(year)].filter(Boolean);
+---
+
+<article class="row">
+  <div class="row-title">{data.title}</div>
+  <div class="row-meta">
+    {metaPieces.map((piece, i) => (
+      <>
+        {i > 0 && <span class="sep">·</span>}
+        <span>{piece}</span>
+      </>
+    ))}
+  </div>
+  <div class="row-desc">{data.one_liner}</div>
+  {links.length > 0 && (
+    <div class="row-links">
+      {links.map(l => (
+        <a
+          href={l.href}
+          target={l.href.startsWith('http') ? '_blank' : undefined}
+          rel={l.href.startsWith('http') ? 'noopener' : undefined}
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+  )}
+</article>

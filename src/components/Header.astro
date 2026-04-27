@@ -1,0 +1,29 @@
+---
+interface Props {
+  pageName: string;
+}
+
+const { pageName } = Astro.props;
+
+const nav = [
+  { href: '/',          label: 'about' },
+  { href: '/research',  label: 'research' },
+  { href: '/projects',  label: 'projects' },
+  { href: '/writings',  label: 'writings' },
+  { href: '/mountains', label: 'mountains' },
+  { href: '/cv.pdf',    label: 'cv' },
+];
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" class="site-title">
+      <span class="site-title-name">Syed <strong>Ali</strong> Haider</span> <span class="site-title-sep">—</span> <span class="site-title-page">{pageName}</span>
+    </a>
+    <nav class="site-nav">
+      {nav.map(item => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
