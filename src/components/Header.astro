@@ -20,6 +20,12 @@ const nav = [
     <a href="/" class="site-title">
       <span class="site-title-name">Syed <strong>Ali</strong> Haider</span> <span class="site-title-sep">—</span> <span class="site-title-page">{pageName}</span>
     </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" />
+    <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+
     <nav class="site-nav">
       {nav.map(item => (
         <a href={item.href}>{item.label}</a>
