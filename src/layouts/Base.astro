@@ -24,6 +24,19 @@ const mainClass = {
 }[layout];
 
 const fullTitle = title ?? `Syed Ali Haider — ${pageName}`;
+
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Syed Ali Haider',
+  url: 'https://s-haider10.github.io',
+  sameAs: [
+    'https://github.com/s-haider10',
+    'https://x.com/s__haider1',
+  ],
+};
 ---
 
 <!doctype html>
@@ -50,6 +63,10 @@ const fullTitle = title ?? `Syed Ali Haider — ${pageName}`;
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={Astro.url.href} />
+
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
