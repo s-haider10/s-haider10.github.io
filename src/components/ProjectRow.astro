@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { item } = Astro.props;
-const { data } = item;
+const { data, id } = item;
 
 const links: { label: string; href: string }[] = [];
 if (data.pdf)          links.push({ label: 'pdf',  href: data.pdf });
@@ -18,7 +18,9 @@ const metaPieces = [data.venue, String(year)].filter(Boolean);
 ---
 
 <article class="row">
-  <div class="row-title">{data.title}</div>
+  <div class="row-title">
+    <a href={`/projects/${id}`}>{data.title}</a>
+  </div>
   <div class="row-meta">
     {metaPieces.map((piece, i) => (
       <>
