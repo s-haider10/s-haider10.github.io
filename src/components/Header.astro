@@ -6,12 +6,12 @@ interface Props {
 const { pageName } = Astro.props;
 
 const nav = [
-  { href: '/',          label: 'about' },
-  { href: '/research',  label: 'research' },
-  { href: '/projects',  label: 'projects' },
+  { href: '/',                       label: 'about' },
+  { href: '/research',               label: 'research' },
+  { href: '/projects',               label: 'projects' },
+  { href: '/pdfs/ai_safety_cv.pdf',  label: 'cv' },
   //{ href: '/writings',  label: 'writings' },
   //{ href: '/mountains', label: 'mountains' },
-  //{ href: '/cv.pdf',    label: 'cv' },
 ];
 ---
 
@@ -27,9 +27,18 @@ const nav = [
     </label>
 
     <nav class="site-nav">
-      {nav.map(item => (
-        <a href={item.href}>{item.label}</a>
-      ))}
+      {nav.map(item => {
+        const isPdf = item.href.endsWith('.pdf');
+        return (
+          <a
+            href={item.href}
+            target={isPdf ? '_blank' : undefined}
+            rel={isPdf ? 'noopener' : undefined}
+          >
+            {item.label}
+          </a>
+        );
+      })}
     </nav>
   </div>
 </header>

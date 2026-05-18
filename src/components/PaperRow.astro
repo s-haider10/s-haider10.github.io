@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { isSelf, formatAuthor } from '../utils/authors';
 
 interface Props {
   paper: CollectionEntry<'papers'>;
@@ -7,10 +8,6 @@ interface Props {
 
 const { paper } = Astro.props;
 const { data, id } = paper;
-
-// Bold any author whose name contains "Haider" (case-insensitive).
-// This handles "Syed Ali Haider", "Syed Haider", "S. A. Haider", etc.
-const isSelf = (name: string) => /haider/i.test(name);
 
 const links: { label: string; href: string }[] = [];
 if (data.pdf)          links.push({ label: 'pdf',     href: data.pdf });
@@ -30,14 +27,22 @@ if (data.project_page) links.push({ label: 'site',    href: data.project_page })
       {data.authors.map((author, i) => (
         <>
           {i > 0 && ', '}
-          {isSelf(author) ? <strong>{author}</strong> : <span>{author}</span>}
+          {isSelf(author)
+            ? <strong>{formatAuthor(author)}</strong>
+            : <span>{formatAuthor(author)}</span>}
         </>
       ))}
     </div>
   )}
 
   <div class="row-meta">
-    <span>{data.venue}</span>
+    <span class="venue">{data.venue}</span>
+    {data.theme && (
+      <>
+        <span class="sep">·</span>
+        <span class="theme-tag">{data.theme}</span>
+      </>
+    )}
   </div>
 
   <div class="row-desc">{data.one_liner}</div>

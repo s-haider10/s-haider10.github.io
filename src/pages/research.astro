@@ -3,42 +3,26 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Rail from '../components/Rail.astro';
 import PaperRow from '../components/PaperRow.astro';
+import { THEMES } from '../content.config';
 
-const themeOrder = [
-  {
-    key: 'auditing-multi-agent',
-    id: 'auditing',
-    label: 'auditing',
-    title: 'Auditing multi-agent systems',
-    blurb: 'Tools for auditing the failure modes that only show up when LLM agents interact — with each other, with adversaries, with the world.',
-  },
-  {
-    key: 'behavior-under-pressure',
-    id: 'pressure',
-    label: 'pressure',
-    title: 'Behavior under pressure',
-    blurb: 'Datasets, taxonomies, and training methods for the regimes where standard evaluations stop telling us anything useful.',
-  },
-  {
-    key: 'safety-deployment',
-    id: 'deployment',
-    label: 'deployment',
-    title: 'Safety in deployment',
-    blurb: 'What it takes for safety properties to survive contact with the people, institutions, and incentives that deploy AI systems.',
-  },
-];
+const THEME_LABELS: Record<typeof THEMES[number], string> = {
+  'agent-alignment':         'Agent alignment',
+  'adversarial-robustness':  'Adversarial robustness',
+  'technical-ai-governance': 'AI governance',
+  'nlp':                     'NLP',
+};
 
-const allPapers = await getCollection('papers');
-const papersByTheme = themeOrder.map(t => ({
-  ...t,
-  papers: allPapers
-    .filter(p => p.data.theme === t.key)
-    .sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)),
-}));
+const papers = (await getCollection('papers'))
+  .sort((a, b) => {
+    const orderDiff = (a.data.order ?? 0) - (b.data.order ?? 0);
+    if (orderDiff !== 0) return orderDiff;
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
 
-const railSections = papersByTheme
-  .filter(t => t.papers.length > 0)
-  .map(t => ({ id: t.id, label: t.label }));
+const presentThemes = new Set(papers.map(p => p.data.theme));
+const sections = THEMES
+  .filter(t => presentThemes.has(t))
+  .map(t => ({ label: THEME_LABELS[t] }));
 ---
 
 <Base
@@ -47,21 +31,9 @@ const railSections = papersByTheme
   layout="with-rail"
   description="Research papers on technical AI safety, multi-agent LLM systems, mechanistic interpretability, and behavior under pressure."
 >
-  <Rail sections={railSections} />
+  <Rail sections={sections} sectionsHeading="Themes" />
 
   <div class="layout-main">
-    <p class="page-intro">
-      Papers on technical AI safety — auditing multi-agent systems, characterizing
-      LLM behavior under pressure, and what it takes for safety properties to
-      survive deployment.
-    </p>
-
-    {papersByTheme.map(theme => theme.papers.length > 0 && (
-      <section class="theme">
-        <h2 id={theme.id} class="theme-h2">{theme.title}</h2>
-        <div class="theme-blurb">{theme.blurb}</div>
-        {theme.papers.map(paper => <PaperRow paper={paper} />)}
-      </section>
-    ))}
+    {papers.map(paper => <PaperRow paper={paper} />)}
   </div>
 </Base>

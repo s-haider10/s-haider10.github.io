@@ -1,4 +1,4 @@
 ---
 date: 2024-11-15
-title: "Most Popular Research Poster, NYU Undergraduate Research Symposium."
+title: "Won Best Research Poster at the NYU CS Undergraduate Research Symposium."
 ---

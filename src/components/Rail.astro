@@ -5,15 +5,16 @@
 // in-page anchors. Contact links are always shown.
 
 interface Section {
-  id: string;
+  id?: string;
   label: string;
 }
 
 interface Props {
   sections?: Section[];
+  sectionsHeading?: string;
 }
 
-const { sections = [] } = Astro.props;
+const { sections = [], sectionsHeading = 'On this page' } = Astro.props;
 
 const contact = [
   { href: 'mailto:syed.ali.haider.gr@dartmouth.edu', label: 'email' },
@@ -25,10 +26,10 @@ const contact = [
 <aside class="rail" aria-label="Page navigation">
   {sections.length > 0 && (
     <div class="rail-section">
-      <div class="rail-heading">On this page</div>
+      <div class="rail-heading">{sectionsHeading}</div>
       <ul>
         {sections.map(s => (
-          <li><a href={`#${s.id}`}>{s.label}</a></li>
+          <li>{s.id ? <a href={`#${s.id}`}>{s.label}</a> : <span>{s.label}</span>}</li>
         ))}
       </ul>
     </div>

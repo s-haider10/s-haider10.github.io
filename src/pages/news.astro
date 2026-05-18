@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import { renderInline } from '../utils/markdown-inline';
 
 const news = (await getCollection('news'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -21,7 +22,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
     {news.map(item => (
       <li class="news-item">
         <span class="news-date">{fmtDate(item.data.date)}</span>
-        <span>{item.data.title}</span>
+        <span set:html={renderInline(item.data.title)} />
       </li>
     ))}
   </ul>

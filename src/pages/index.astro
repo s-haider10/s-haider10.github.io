@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { Content as BioContent } from '../content/bio.md';
+import { renderInline } from '../utils/markdown-inline';
 
 const allNews = (await getCollection('news'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -49,7 +50,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
         {newsVisible.map(item => (
           <li class="news-item">
             <span class="news-date">{fmtDate(item.data.date)}</span>
-            <span>{item.data.title}</span>
+            <span set:html={renderInline(item.data.title)} />
           </li>
         ))}
         {newsExtra.length > 0 && (
@@ -57,7 +58,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
             {newsExtra.map(item => (
               <li class="news-item news-item-extra">
                 <span class="news-date">{fmtDate(item.data.date)}</span>
-                <span>{item.data.title}</span>
+                <span set:html={renderInline(item.data.title)} />
               </li>
             ))}
           </template>

@@ -152,6 +152,12 @@ body {
     color: var(--accent);
     background: none;
   }
+
+  .rail span {
+    color: var(--muted);
+    text-transform: lowercase;
+    letter-spacing: 0.02em;
+  }
 }
 
 /* ─── Typography ─────────────────────────────────────────────────────── */
@@ -651,6 +657,17 @@ hr {
 
 .row-meta .sep {
   opacity: 0.4;
+}
+
+.venue {
+  color: var(--accent);
+}
+
+.theme-tag {
+  color: var(--text);
+  background-color: var(--bg-tint);
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
 }
 
 .row-desc {
