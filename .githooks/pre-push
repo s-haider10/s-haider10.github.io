@@ -1,0 +1,22 @@
+#!/bin/sh
+# Blocks a push if the site doesn't build — catches bad content frontmatter
+# before it reaches CI.
+#
+# Enabled with:  git config core.hooksPath .githooks
+# Bypass once:   git push --no-verify
+
+echo "pre-push: building site to validate content schemas..."
+
+if ! npm run --silent check >/tmp/astro-prepush.log 2>&1; then
+  echo ""
+  echo "✗ Build failed — push blocked. Last 30 lines:"
+  echo ""
+  tail -30 /tmp/astro-prepush.log
+  echo ""
+  echo "Full log: /tmp/astro-prepush.log"
+  echo "Push anyway with: git push --no-verify"
+  exit 1
+fi
+
+echo "✓ build clean"
+exit 0

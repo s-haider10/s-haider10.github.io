@@ -36,7 +36,44 @@ src/content/
 ```
 
 To update the site, edit a markdown file and commit. GitHub Actions
-rebuilds and deploys in ~90 seconds.
+rebuilds and deploys in ~30 seconds.
+
+---
+
+## Adding content
+
+### At a desk — use the scaffolder
+
+```bash
+npm run new
+```
+
+Prompts for the collection and its fields, presents `status` and `theme` as
+numbered menus so the enums can't be mistyped, slugifies the title, and writes
+a correctly-named file with valid frontmatter. Then:
+
+```bash
+npm run check    # astro build — validates every content schema
+npm run dev      # preview at localhost:4321
+```
+
+**Enable the pre-push hook once per clone:**
+
+```bash
+git config core.hooksPath .githooks
+```
+
+After that, `git push` builds the site first and refuses to push if any
+frontmatter is invalid. Override with `git push --no-verify`.
+
+### From the phone — open a PR, don't commit to main
+
+Use the GitHub web/mobile editor, but choose **"Create a new branch and start a
+pull request"** rather than committing straight to `main`. The `PR build check`
+workflow builds the site on the PR, so a bad enum or missing field shows up as a
+failed check instead of a failed deploy. Merge once it's green.
+
+The frontmatter reference below is the source of truth — copy from it.
 
 ---
 
@@ -113,8 +150,8 @@ New file at `src/content/papers/your-paper.md`:
 ---
 title: "Your Paper"
 venue: "NeurIPS 2026"
-status: in-progress # or under-review, published, target
-theme: auditing-multi-agent # or behavior-under-pressure, safety-deployment
+status: under-review # manuscript-in-preparation | under-review | accepted | published | target
+theme: agent-alignment # agent-alignment | adversarial-robustness | technical-ai-governance | nlp
 date: 2026-05-12
 one_liner: "Single-sentence why-this-matters."
 pdf: /pdfs/your-paper.pdf
@@ -195,8 +232,8 @@ No detail page is generated.
 ```yaml
 title: string                   # required
 venue: string                   # required
-status: in-progress | under-review | published | target   # required
-theme: auditing-multi-agent | behavior-under-pressure | safety-deployment   # required
+status: manuscript-in-preparation | under-review | accepted | published | target   # required
+theme: agent-alignment | adversarial-robustness | technical-ai-governance | nlp    # required
 date: YYYY-MM-DD                # required
 one_liner: string               # required
 authors: [string, ...]          # optional
@@ -289,7 +326,10 @@ Almost no JS — only the news show-more button (~15 lines, inline).
 ├── astro.config.mjs
 ├── package.json                       # one dep: astro
 ├── tsconfig.json
-├── .github/workflows/deploy.yml
+├── scripts/new-content.mjs            # `npm run new` scaffolder
+├── .githooks/pre-push                 # blocks pushes that don't build
+├── .github/workflows/deploy.yml       # push to main → build → Pages
+├── .github/workflows/pr-check.yml     # PR → build (protects mobile edits)
 ├── public/
 │   ├── favicon.svg
 │   ├── pdfs/                          # drop PDFs here

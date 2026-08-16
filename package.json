@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check": "astro build",
+    "new": "node scripts/new-content.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
