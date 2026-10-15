@@ -31,6 +31,7 @@ const papers = defineCollection({
     pdf: z.string().optional(), // e.g. "/pdfs/multipetri.pdf"
     code: z.string().optional(),
     arxiv: z.string().optional(),
+    openreview: z.string().optional(),
     project_page: z.string().optional(),
     poster: z.string().optional(),
     order: z.number().default(0), // sort within theme (lower first)

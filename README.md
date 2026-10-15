@@ -7,17 +7,17 @@ GitHub mobile app, no local environment required.
 
 ## Site map
 
-| Page             | URL                | Source                                                |
-| ---------------- | ------------------ | ----------------------------------------------------- |
-| About (homepage) | `/`                | `src/pages/index.astro` + `src/content/bio.md`        |
-| Research         | `/research`        | `src/pages/research.astro`                            |
-| Paper detail     | `/research/{slug}` | auto from `src/content/papers/`                       |
-| Projects         | `/projects`        | `src/pages/projects.astro`                            |
-| Writings         | `/writings`        | `src/pages/writings.astro`                            |
-| Writing detail   | `/writings/{slug}` | auto from `src/content/writings/` (non-external only) |
-| News archive     | `/news`            | `src/pages/news.astro`                                |
-| Mountains        | `/mountains`       | `src/pages/mountains.astro`                           |
-| CV               | `/cv.pdf`          | `public/cv.pdf`                                       |
+| Page             | URL                      | Source                                                |
+| ---------------- | ------------------------ | ----------------------------------------------------- |
+| About (homepage) | `/`                      | `src/pages/index.astro` + `src/content/bio.md`        |
+| Research         | `/research`              | `src/pages/research.astro`                            |
+| Paper detail     | `/research/{slug}`       | auto from `src/content/papers/`                       |
+| Projects         | `/projects`              | `src/pages/projects.astro`                            |
+| Writings         | `/writings`              | `src/pages/writings.astro`                            |
+| Writing detail   | `/writings/{slug}`       | auto from `src/content/writings/` (non-external only) |
+| News archive     | `/news`                  | `src/pages/news.astro`                                |
+| Mountains        | `/mountains`             | `src/pages/mountains.astro`                           |
+| CV               | `/pdfs/ai_safety_cv.pdf` | `public/pdfs/ai_safety_cv.pdf`                        |
 
 Header pattern, every page: `Syed **Ali** Haider — {PageName}` + nav.
 Homepage adds an `Ali — [photo]` hero block below the bar.
@@ -111,7 +111,8 @@ then in `src/pages/index.astro` change `src="/images/profile.svg"` to
 
 ### 4. Add your CV
 
-Drop `public/cv.pdf`. The nav link already points to `/cv.pdf`.
+Replace `public/pdfs/ai_safety_cv.pdf`. The nav link already points to
+`/pdfs/ai_safety_cv.pdf`.
 
 ### 5. Run locally (optional)
 
@@ -156,6 +157,7 @@ date: 2026-05-12
 one_liner: "Single-sentence why-this-matters."
 pdf: /pdfs/your-paper.pdf
 code: https://github.com/...
+openreview: https://openreview.net/forum?id=... # optional; also arxiv, poster, project_page
 ---
 [paper writeup body]
 ```
@@ -237,7 +239,7 @@ theme: agent-alignment | adversarial-robustness | technical-ai-governance | nlp 
 date: YYYY-MM-DD                # required
 one_liner: string               # required
 authors: [string, ...]          # optional
-pdf, code, arxiv, poster,
+pdf, code, arxiv, openreview, poster,
 project_page: string            # all optional
 order: number                   # optional, lower = earlier in theme
 ```

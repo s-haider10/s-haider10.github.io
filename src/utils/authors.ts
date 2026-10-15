@@ -1,4 +1,6 @@
-export const isSelf = (name: string) => /haider/i.test(name);
+// Match only this site's owner, not other Haiders (e.g. co-authors who share the surname).
+export const isSelf = (name: string) =>
+  /^\s*(syed\s+(ali|a\.?)|s\.\s*a\.?)\s+haider\b/i.test(name);
 
 export function formatAuthor(name: string): string {
   const trimmed = name.trim();

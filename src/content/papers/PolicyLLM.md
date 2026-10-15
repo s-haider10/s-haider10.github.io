@@ -1,21 +1,22 @@
 ---
-title: "PolicyLLM: Policy Extraction and Enforcement for Runtime AI Governance"
+title: "PolicyLLM: Neuro-Symbolic Policy Extraction and Enforcement for Runtime AI Governance"
 venue: "ICML Technical AI Governance Research 2026 (poster)"
 status: "published"
 theme: "technical-ai-governance"
 date: 2026-01-01
 authors:
   - "Syed Ali Haider*"
-  - "B. Huh*"
-  - "H. H. Kim*"
-  - "G. Nalagatla"
-  - "C. Guerrero Alvarez"
-  - "Y. Raj"
-  - "S. Vosoughi"
+  - "Benjamin Huh*"
+  - "Hak Hyun Kim*"
+  - "Goutham Nalagatla"
+  - "Carlos Guerrero Alvarez"
+  - "Yash Raj"
+  - "Soroush Vosoughi"
 one_liner: "Compiles natural-language safety policies into symbolically validated decision graphs that act as a runtime governance layer over LLM outputs."
 order: 1
 pdf: /pdfs/PolicyLLM_ICML_TAIGR_preprint.pdf
 code: https://github.com/s-haider10/PolicyLLM
+openreview: https://openreview.net/forum?id=9raGR7DnlY
 ---
 
 ## What this is
