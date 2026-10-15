@@ -1,6 +1,6 @@
 ---
 title: "Moral Surface Without Moral Character: Value Labels Do Not Determine LLM Agent Behavior"
-venue: "Foundations of Agentic Systems Theory (FAST) 2026, Paris"
+venue: "NeurIPS 2026 Workshop on Foundations of Agentic Systems Theory (FAST), Paris"
 status: "accepted"
 theme: "agent-alignment"
 date: 2026-10-05
