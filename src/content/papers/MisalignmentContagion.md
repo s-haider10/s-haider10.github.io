@@ -1,16 +1,17 @@
 ---
-title: "Misalignment Contagion: How a Minority Shifts Aligned LLM Agents in Debate"
-venue: "COLM 2026 (under review)"
-status: "under-review"
+title: "Misalignment Contagion: Can a Misaligned Minority Shift Aligned Agents in Multi-Agent LLM Deliberation?"
+venue: "COLM 2026 (main conference)"
+status: "published"
 theme: "agent-alignment"
 date: 2026-01-15
 authors:
   - "Syed Ali Haider"
-  - "S. Vosoughi"
+  - "Soroush Vosoughi"
 one_liner: "A misaligned minority can systematically shift aligned LLM agents' private safety beliefs through multi-agent deliberation."
-order: 2
+order: 1
 pdf: /pdfs/Misalignment_Contagion__preprint.pdf
 code: https://github.com/s-haider10/Misalignment-Contagion
+openreview: https://openreview.net/forum?id=tj2fLGyWC9
 ---
 
 ## What this is

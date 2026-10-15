@@ -1,20 +1,19 @@
 ---
-title: "Position: What is a Morally Aligned AI Agent? Philosophy as a Bridge to Operationalization"
-venue: "ICML Philosophy meets ML 2026 (under review)"
-status: "under-review"
+title: "What Is a Morally Aligned AI Agent? A Philosophical Coverage Map and Its Failure Under Composition"
+venue: "Foundations of Agentic Systems Theory (FAST) 2026, Paris"
+status: "accepted"
 theme: "agent-alignment"
-date: 2026-01-20
+date: 2026-10-05
 authors:
   - "Syed Ali Haider"
-one_liner: "Alignment optimizes with precision for targets it has not clearly defined; philosophy is the discipline that can fix that."
-order: 4
-pdf: /pdfs/What_is_a_Moral_AI_Agent_.pdf
+one_liner: "An 8×3 coverage map of agency and morality shows where alignment research is thin, and that per-agent alignment largely does not survive composition into multi-agent systems."
+order: 3
 ---
 
 ## What this is
 
-A position paper arguing that alignment research has a vocabulary problem: we talk about making models reliable, safe, and trustworthy without asking what those words require of a system philosophically. Building on Singh's eight-dimension reconstruction of agency — causality, initiative, responsibility, intention, delegation, utility, stability, computation — the paper identifies three dimensions of morality shared across virtue, deontological, and consequentialist traditions: normativity, deliberation, and judgment. Crossing the two yields an 8×3 matrix that serves as a coverage map for the alignment field. The central claim: current techniques are not randomly distributed across this matrix. We are strong on normativity, increasingly competent on judgment, and consistently weak on deliberation.
+Alignment research has a vocabulary problem: we ask systems to be safe, reliable, and trustworthy without specifying what those words require of a system philosophically, then optimize precisely for targets we have not defined. The paper decomposes agency into eight dimensions and morality into three — normativity, deliberation, and judgment — and crosses them into an 8×3 coverage map. Unlike prior framework papers, it supplies the coding protocol and survey standing behind every cell. Coverage is uneven in a specific way: deliberation reaches only two of the eight agency dimensions, against four for normativity and six for judgment.
 
 ## Why it matters
 
-The matrix is a diagnostic tool. It shows where the field's investment is heavy and where it is structurally thin — not because of an aesthetic preference for philosophical rigor, but because techniques that succeed on one dimension can fail silently on another, and we lack the vocabulary to notice. Treating philosophy as primary rather than decorative is, I argue, an engineering necessity: you cannot build a morally aligned agent if "morally aligned" remains a word that everyone in the room interprets differently.
+The paper then asks whether these properties survive composition into agentic systems. Largely they do not: two are blocked by standing impossibility results (Arrow, 1951; List & Pettit, 2002), one dilutes (Thompson, 1980), and one attenuates along delegation chains. Per-agent alignment does not lift to system-level alignment, which reframes several observed multi-agent failures as structural rather than incidental.
