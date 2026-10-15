@@ -138,6 +138,8 @@ title: "Paper accepted at ICML 2026."
 ---
 ```
 
+Titles support `[links](https://...)` and `**bold**`.
+
 The homepage shows the 5 most recent. Older items reveal via "+ show more"
 button (no separate page needed for ≤ ~30 items; for more, the full
 archive at `/news` is always accessible from the nav).
