@@ -8,6 +8,7 @@ authors:
   - "Syed Ali Haider"
 one_liner: "An auditing framework for production multi-agent LLM systems — the case Petri leaves open."
 order: 9
+draft: true # hidden from /research
 # Add these as you have them:
 # pdf: /pdfs/multipetri.pdf
 # code: https://github.com/s-haider10/multipetri

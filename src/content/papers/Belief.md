@@ -1,12 +1,12 @@
 ---
 title: "Belief Attribution Requires Behavioral Evidence and Agents Now Supply It"
-venue: "Foundations of Agentic Systems Theory (FAST) 2026, Paris"
+venue: "NeurIPS 2026 Workshop on Foundations of Agentic Systems Theory (FAST), Paris"
 status: "accepted"
 theme: "agent-alignment"
 date: 2026-10-05
 authors:
   - "Syed Ali Haider"
-one_liner: "Agents that act under uncertainty with stakes supply the behavioral evidence belief attribution needs; structural evidence like a probe direction counts only when intervening on it moves that behavior."
+one_liner: "Agents now act under uncertainty with stakes, so belief claims about models can be tested against behavior."
 order: 2
 ---
 

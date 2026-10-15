@@ -16,6 +16,13 @@
   --border: #dccfb3;
   --accent: #6b2c20; /* deep oxblood */
 
+  /* Bio keyword highlights (.hl-1 … .hl-5) */
+  --hl-1: var(--accent); /* oxblood */
+  --hl-2: #1e3a5f; /* navy */
+  --hl-3: #2c5f3d; /* forest */
+  --hl-4: #5b2a6e; /* plum */
+  --hl-5: #8a5a00; /* ochre */
+
   /* Type */
   --font-serif:
     "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
@@ -474,6 +481,16 @@ hr {
   font-weight: 600;
   color: var(--text);
 }
+
+/* Colored keyword phrases in the bio: <em class="hl hl-1">…</em> or <strong class="hl hl-5">…</strong> */
+.about-bio .hl {
+  font-weight: 600;
+}
+.about-bio .hl-1 { color: var(--hl-1); }
+.about-bio .hl-2 { color: var(--hl-2); }
+.about-bio .hl-3 { color: var(--hl-3); }
+.about-bio .hl-4 { color: var(--hl-4); }
+.about-bio .hl-5 { color: var(--hl-5); }
 
 .about-aside {
   width: 220px;

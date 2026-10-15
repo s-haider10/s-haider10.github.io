@@ -1,5 +1,5 @@
-// Render a single-line string with [text](url) links into HTML.
-// Everything non-link is HTML-escaped.
+// Render a single-line string with [text](url) links and **bold** into HTML.
+// Everything else is HTML-escaped.
 export function renderInline(title: string): string {
   const escape = (s: string) =>
     s.replace(/&/g, '&amp;')
@@ -16,5 +16,5 @@ export function renderInline(title: string): string {
       const attrs = external ? ` target="_blank" rel="noopener"` : '';
       return `<a href="${href}"${attrs}>${text}</a>`;
     },
-  );
+  ).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 }

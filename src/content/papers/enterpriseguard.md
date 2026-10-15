@@ -2,11 +2,11 @@
 title: "EnterpriseGuard: A Counterfactual Test of Guardrail Adherence in Collaborative Enterprise Agents"
 venue: "COLM 2026 Workshop on Agent Behavior (benchmark proposal)"
 status: "accepted"
-theme: "technical-ai-governance"
+theme: "monitoring"
 date: 2026-07-01
 authors:
-  - "Zainab Rubab Haider"
   - "Syed Ali Haider"
+  - "Zainab Rubab Haider"
 one_liner: "A counterfactual test of guardrail adherence in collaborative enterprise agents."
 order: 2
 # Add these as you have them:

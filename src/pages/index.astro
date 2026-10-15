@@ -3,17 +3,16 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import { Content as BioContent } from '../content/bio.md';
 import { renderInline } from '../utils/markdown-inline';
+import { byRecent, fmtDay as fmtDate, fmtMonth } from '../utils/dated';
 
-const allNews = (await getCollection('news'))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const allNews = (await getCollection('news')).sort(byRecent);
 
 const VISIBLE = 5;
 const newsVisible = allNews.slice(0, VISIBLE);
 const newsExtra = allNews.slice(VISIBLE);
 
-const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
-  month: 'short', day: '2-digit', year: 'numeric',
-});
+const awards = (await getCollection('awards')).sort(byRecent);
+const service = (await getCollection('service')).sort(byRecent);
 ---
 
 <Base
@@ -70,6 +69,34 @@ const fmtDate = (d: Date) => d.toLocaleDateString('en-US', {
           + show more ({newsExtra.length})
         </button>
       )}
+    </section>
+  )}
+
+  {awards.length > 0 && (
+    <section>
+      <h2 id="awards">Grants &amp; Awards</h2>
+      <ul class="news">
+        {awards.map(item => (
+          <li class="news-item">
+            <span class="news-date">{fmtMonth(item.data.date)}</span>
+            <span set:html={renderInline(item.data.title)} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {service.length > 0 && (
+    <section>
+      <h2 id="service">Service</h2>
+      <ul class="news">
+        {service.map(item => (
+          <li class="news-item">
+            <span class="news-date">{fmtMonth(item.data.date)}</span>
+            <span set:html={renderInline(item.data.title)} />
+          </li>
+        ))}
+      </ul>
     </section>
   )}
 </Base>

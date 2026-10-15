@@ -1,12 +1,12 @@
 ---
 title: "Moral Surface Without Moral Character: Value Labels Do Not Determine LLM Agent Behavior"
-venue: "Foundations of Agentic Systems Theory (FAST) 2026, Paris"
+venue: "NeurIPS 2026 Workshop on Foundations of Agentic Systems Theory (FAST), Paris"
 status: "accepted"
 theme: "agent-alignment"
 date: 2026-10-05
 authors:
   - "Syed Ali Haider"
-one_liner: "The value a system prompt names does not pin down agent behavior: one operationalization clause can swing defection by 47 points within the same moral framework."
+one_liner: "Same moral label, different behavior: one prompt clause swings LLM agent defection by 47 points."
 order: 4
 # Add these as you have them:
 # pdf: /pdfs/moral-surface.pdf

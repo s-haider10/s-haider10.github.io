@@ -1,11 +1,12 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
-// ─── Research themes (the spine of /papers) ──────────────────────────
+// ─── Research themes (the spine of /research) ────────────────────────
 // To add or rename a theme, edit this list AND the labels in
-// src/pages/papers.astro.
+// src/pages/research.astro (and THEMES in scripts/new-content.mjs).
 export const THEMES = [
   "agent-alignment",
+  "monitoring",
   "adversarial-robustness",
   "technical-ai-governance",
   "nlp",
@@ -35,6 +36,7 @@ const papers = defineCollection({
     project_page: z.string().optional(),
     poster: z.string().optional(),
     order: z.number().default(0), // sort within theme (lower first)
+    draft: z.boolean().default(false), // hide from /research and skip the detail page
   }),
 });
 
@@ -58,12 +60,27 @@ const projects = defineCollection({
 });
 
 // ─── News (dated updates) ────────────────────────────────────────────
+// News, awards and service share one shape: a dated one-line entry.
+const datedItem = z.object({
+  date: z.coerce.date(),
+  title: z.string(), // supports [links](url) and **bold**
+  order: z.number().default(0), // tie-break within the same date (lower first)
+});
+
 const news = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/news" }),
-  schema: z.object({
-    date: z.coerce.date(),
-    title: z.string(),
-  }),
+  schema: datedItem,
+});
+
+// ─── Grants & awards / Service (homepage sections) ───────────────────
+const awards = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/awards" }),
+  schema: datedItem,
+});
+
+const service = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/service" }),
+  schema: datedItem,
 });
 
 // ─── Writings (essays, lecture notes, philosophy, takes) ─────────────
@@ -86,4 +103,4 @@ const writings = defineCollection({
   }),
 });
 
-export const collections = { papers, projects, news, writings };
+export const collections = { papers, projects, news, awards, service, writings };

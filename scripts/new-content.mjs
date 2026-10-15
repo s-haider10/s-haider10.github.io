@@ -16,6 +16,7 @@ const CONTENT = join(ROOT, "src", "content");
 
 const THEMES = [
   "agent-alignment",
+  "monitoring",
   "adversarial-robustness",
   "technical-ai-governance",
   "nlp",
@@ -45,9 +46,11 @@ const SCHEMAS = {
       { key: "pdf", label: "PDF path (e.g. /pdfs/x.pdf)", type: "text", optional: true },
       { key: "code", label: "Code URL", type: "text", optional: true },
       { key: "arxiv", label: "arXiv URL", type: "text", optional: true },
+      { key: "openreview", label: "OpenReview URL", type: "text", optional: true },
       { key: "project_page", label: "Project page URL", type: "text", optional: true },
       { key: "poster", label: "Poster path", type: "text", optional: true },
       { key: "order", label: "Order within theme (lower first)", type: "number", default: 0 },
+      { key: "draft", label: "Draft? (hide from /research)", type: "bool", default: false },
     ],
     body: "## What this is\n\n\n\n## Why it matters\n\n\n",
   },
@@ -73,6 +76,24 @@ const SCHEMAS = {
     fields: [
       { key: "date", label: "Date", type: "date" },
       { key: "title", label: "Title", type: "text" },
+    ],
+    body: "",
+  },
+  awards: {
+    dir: "awards",
+    dated: true,
+    fields: [
+      { key: "date", label: "Date", type: "date" },
+      { key: "title", label: "Title (e.g. Research grant from X ($1,000))", type: "text" },
+    ],
+    body: "",
+  },
+  service: {
+    dir: "service",
+    dated: true,
+    fields: [
+      { key: "date", label: "Date", type: "date" },
+      { key: "title", label: "Title (e.g. Reviewer, NeurIPS 2026)", type: "text" },
     ],
     body: "",
   },

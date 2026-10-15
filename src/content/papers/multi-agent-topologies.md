@@ -9,6 +9,7 @@ authors:
   - "Soroush Vosoughi"
 one_liner: "A systematic study of topology in multi-agent systems and how misalignment spreads through it"
 order: 8
+draft: true # hidden from /research
 ---
 
 <!-- Body to be written: add "What this is" and "Why it matters" sections. -->
