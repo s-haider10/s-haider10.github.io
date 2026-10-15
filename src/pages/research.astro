@@ -7,12 +7,13 @@ import { THEMES } from '../content.config';
 
 const THEME_LABELS: Record<typeof THEMES[number], string> = {
   'agent-alignment':         'Agent alignment',
+  'monitoring':              'Monitoring',
   'adversarial-robustness':  'Adversarial robustness',
   'technical-ai-governance': 'AI governance',
   'nlp':                     'NLP',
 };
 
-const papers = (await getCollection('papers'))
+const papers = (await getCollection('papers', p => !p.data.draft))
   .sort((a, b) => {
     const orderDiff = (a.data.order ?? 0) - (b.data.order ?? 0);
     if (orderDiff !== 0) return orderDiff;

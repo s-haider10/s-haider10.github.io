@@ -5,7 +5,7 @@ import Base from '../../layouts/Base.astro';
 import { isSelf, formatAuthor } from '../../utils/authors';
 
 export const getStaticPaths = (async () => {
-  const papers = await getCollection('papers');
+  const papers = await getCollection('papers', p => !p.data.draft);
   return papers.map(paper => ({
     params: { slug: paper.id },
     props: { paper },

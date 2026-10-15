@@ -9,7 +9,6 @@ authors:
   - "Soroush Vosoughi"
 one_liner: "A misaligned minority can systematically shift aligned LLM agents' private safety beliefs through multi-agent deliberation."
 order: 1
-pdf: /pdfs/Misalignment_Contagion__preprint.pdf
 code: https://github.com/s-haider10/Misalignment-Contagion
 openreview: https://openreview.net/forum?id=tj2fLGyWC9
 ---

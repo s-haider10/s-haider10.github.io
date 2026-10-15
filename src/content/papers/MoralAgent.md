@@ -6,7 +6,7 @@ theme: "agent-alignment"
 date: 2026-10-05
 authors:
   - "Syed Ali Haider"
-one_liner: "An 8×3 coverage map of agency and morality shows where alignment research is thin, and that per-agent alignment largely does not survive composition into multi-agent systems."
+one_liner: "An 8×3 coverage map of agency and morality, and why per-agent alignment fails to compose."
 order: 3
 ---
 

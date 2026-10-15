@@ -16,7 +16,6 @@ GitHub mobile app, no local environment required.
 | Writings         | `/writings`              | `src/pages/writings.astro`                            |
 | Writing detail   | `/writings/{slug}`       | auto from `src/content/writings/` (non-external only) |
 | News archive     | `/news`                  | `src/pages/news.astro`                                |
-| Mountains        | `/mountains`             | `src/pages/mountains.astro`                           |
 | CV               | `/pdfs/ai_safety_cv.pdf` | `public/pdfs/ai_safety_cv.pdf`                        |
 
 Header pattern, every page: `Syed **Ali** Haider — {PageName}` + nav.
@@ -32,7 +31,9 @@ src/content/
 ├── papers/               ← research papers (themed)
 ├── projects/             ← applied projects (free-form categories)
 ├── writings/             ← essays, lecture notes (free-form categories, dual-publish)
-└── news/                 ← dated news items
+├── news/                 ← dated news items
+├── awards/               ← grants & awards (homepage section)
+└── service/              ← reviewing, organizing (homepage section)
 ```
 
 To update the site, edit a markdown file and commit. GitHub Actions
@@ -144,6 +145,14 @@ The homepage shows the 5 most recent. Older items reveal via "+ show more"
 button (no separate page needed for ≤ ~30 items; for more, the full
 archive at `/news` is always accessible from the nav).
 
+Items on the same date sort by `order` (lower first, default 0).
+
+### Grant / award or service item
+
+Same format as a news item, in `src/content/awards/` or
+`src/content/service/`. Each renders as its own section below News on the
+homepage, dated by month (e.g. "Aug 2026").
+
 ### Paper
 
 PDF → `public/pdfs/your-paper.pdf`.
@@ -154,7 +163,7 @@ New file at `src/content/papers/your-paper.md`:
 title: "Your Paper"
 venue: "NeurIPS 2026"
 status: under-review # manuscript-in-preparation | under-review | accepted | published | target
-theme: agent-alignment # agent-alignment | adversarial-robustness | technical-ai-governance | nlp
+theme: agent-alignment # agent-alignment | monitoring | adversarial-robustness | technical-ai-governance | nlp
 date: 2026-05-12
 one_liner: "Single-sentence why-this-matters."
 pdf: /pdfs/your-paper.pdf
@@ -237,13 +246,14 @@ No detail page is generated.
 title: string                   # required
 venue: string                   # required
 status: manuscript-in-preparation | under-review | accepted | published | target   # required
-theme: agent-alignment | adversarial-robustness | technical-ai-governance | nlp    # required
+theme: agent-alignment | monitoring | adversarial-robustness | technical-ai-governance | nlp    # required
 date: YYYY-MM-DD                # required
 one_liner: string               # required
 authors: [string, ...]          # optional
 pdf, code, arxiv, openreview, poster,
 project_page: string            # all optional
 order: number                   # optional, lower = earlier in theme
+draft: boolean                  # optional, true = hidden from /research, no detail page
 ```
 
 ### `projects/*.md`
@@ -268,11 +278,12 @@ external_url: string # optional → publishes externally instead of generating a
 draft: boolean # optional, default false
 ```
 
-### `news/*.md`
+### `news/*.md`, `awards/*.md`, `service/*.md`
 
 ```yaml
 date: YYYY-MM-DD # required
-title: string # required
+title: string # required; supports [links](url) and **bold**
+order: number # optional, tie-break within the same date (lower first)
 ```
 
 ---
@@ -282,7 +293,7 @@ title: string # required
 `Base.astro` takes a `pageName` prop and renders the title bar as
 `Syed **Ali** Haider — {pageName}` plus nav. Layout options:
 
-- `"narrow"` (60rem max) — homepage, news, mountains, 404
+- `"narrow"` (60rem max) — homepage, news, 404
 - `"wide"` (50rem max) — paper / writing detail pages
 - `"with-rail"` (60rem max with sticky 11rem sidebar on ≥960px) — research, projects, writings
 
@@ -356,12 +367,13 @@ Almost no JS — only the news show-more button (~15 lines, inline).
     │   ├── writings.astro             # /writings
     │   ├── writings/[...slug].astro   # /writings/{slug}
     │   ├── news.astro                 # /news
-    │   ├── mountains.astro            # /mountains
     │   └── 404.astro
     └── content/
         ├── bio.md
         ├── papers/
         ├── projects/
         ├── writings/
-        └── news/
+        ├── news/
+        ├── awards/
+        └── service/
 ```

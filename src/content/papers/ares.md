@@ -9,5 +9,5 @@ authors:
   - "Forrest Leung"
 one_liner: "Hybrid GNN + MARL framework for real-time cyber defense, with an LLM-in-the-loop for autonomous patch synthesis under MARL guidance."
 order: 10
-pdf: /pdfs/ares.pdf
+draft: true # hidden from /research
 ---

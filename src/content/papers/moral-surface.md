@@ -6,7 +6,7 @@ theme: "agent-alignment"
 date: 2026-10-05
 authors:
   - "Syed Ali Haider"
-one_liner: "The value a system prompt names does not pin down agent behavior: one operationalization clause can swing defection by 47 points within the same moral framework."
+one_liner: "Same moral label, different behavior: one prompt clause swings LLM agent defection by 47 points."
 order: 4
 # Add these as you have them:
 # pdf: /pdfs/moral-surface.pdf
